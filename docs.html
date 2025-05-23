@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentation – Italk-Engine</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="static/logo.png" alt="Logo Italk-Engine" class="logo"></a>
+        <h1>Documentation du moteur</h1>
+    </header>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="docs.html" class="active">Documentation</a>
+        <a href="extensions.html">Extensions</a>
+        <a href="https://github.com/jallow-2693/Italk-Engine" target="_blank">GitHub</a>
+    </nav>
+    <main>
+        <article>
+            <h2>Présentation</h2>
+            <p>
+                <strong>Italk-Engine</strong> est un moteur de messagerie instantanée modulaire, écrit en Python.<br>
+                Il gère utilisateurs, groupes, messages et extensions/plugins pour enrichir vos applications.
+            </p>
+            <h2>Installation rapide</h2>
+            <pre><code>git clone https://github.com/jallow-2693/Italk-Engine.git
+cd Italk-Engine
+python app.py
+</code></pre>
+            <h2>Fonctionnalités principales</h2>
+            <ul>
+                <li>Gestion d’utilisateurs et groupes</li>
+                <li>Messagerie instantanée (envoi, réception, horodatage)</li>
+                <li>Système d’événements (hooks)</li>
+                <li>Persistance de l’état</li>
+                <li>Extensions dynamiques (plugins)</li>
+                <li>Configuration JSON centralisée</li>
+            </ul>
+            <h2>Intégration dans votre projet</h2>
+            <pre><code>from Engine.core import ItalkEngine
+
+engine = ItalkEngine(config_path="extensions/config.json")
+user = engine.connect_user("123", "Alice")
+engine.send_message("123", "Hello world!")
+</code></pre>
+            <h2>Sécurité & tokens</h2>
+            <ul>
+                <li>L’authentification (par token/JWT) doit être gérée côté API ou serveur</li>
+                <li>Il suffit ensuite d’appeler <code>connect_user()</code> avec les données vérifiées</li>
+                <li>Des informations supplémentaires peuvent être stockées dans <code>metadata</code></li>
+            </ul>
+            <h2>Extensions</h2>
+            <p>
+                Ajoutez ou développez des extensions dans le dossier <code>extensions/</code>.<br>
+                Pour activer une extension, ajoutez son nom dans <code>extensions/config.json</code>.
+            </p>
+            <h2>Déploiement sur serveur</h2>
+            <ul>
+                <li>Lancez <code>python app.py</code> sur votre VPS ou machine</li>
+                <li>Intégrez-le à une API REST (FastAPI, Flask, etc.) pour une messagerie web/mobile</li>
+                <li>Hébergez ce site statique sur GitHub Pages pour la documentation</li>
+            </ul>
+            <h2>Licence</h2>
+            <p>Projet open-source sous licence MIT.</p>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2025 <a href="https://github.com/jallow-2693">jallow-2693</a> – Italk-Engine.</p>
+    </footer>
+</body>
+</html>
